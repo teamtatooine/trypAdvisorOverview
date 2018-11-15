@@ -163,13 +163,30 @@ console.log("req.body.id second", id);
 
 const improveListing = function(req, callback) {
   console.log("inside db improveListing");
-  console.log("req.body.id", req.params.id);
+  var id = parseInt(req.params.id, 10);
+  console.log("id", id);
+  //var id = req.body.id;
+  var name = req.body.name;
+  var phone = req.body.phone;
+  var website = req.body.website;
+  var address1 = req.body.address1;
+  var city = req.body.city;
+  var state = req.body.state;
+  var zip = req.body.zip;
+  console.log("req.body.id", id);
   console.log("req.body.name", req.body.name);
   console.log("req.body.phone", req.body.phone);
+  console.log("req.body.website", req.body.website);
+  console.log("req.body.address1", req.body.address1);
+  console.log("req.body.city", req.body.city);
+  console.log("req.body.state", req.body.state);
+  console.log("req.body.zip", req.body.zip);
+
+
+  //var params = req.params;
 
   var sql = "update attraction set name = ?, phone= ?, website = ?, address1 = ?, city = ?, state = ?, zip = ? where attractionId = ?";
-  var params = [req.body.name, req.body.phone, req.body.website, req.body.address1, req.body.city, req.body.state, req.body.zip, req.params.id];
-  connection.query(sql, params, function(err, results, fields) {
+  connection.query(sql, [name, phone, website, address1, city, state, zip, id], function(err, results, fields) {
     if(err) {
       throw(err);
     } else {

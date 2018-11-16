@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-var Faker = require('faker');
+//var Faker = require('faker');
 //const getAllLines = require('../database-mysql');
 const db = require('../database-mysql');
 //const stopRouter = require('./routers/stopRouter.js')
